@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8f9ba2581be90c40be7ee0aad38371c, type: 3}
+  m_Name: Prinsexy
+  m_EditorClassIdentifier: 
+  name: Prinsexy
+  speed: 20
+  stamina: 80
+  visuals: {fileID: 100046, guid: 0e1316a3e46fdb349b6ff648610a1d71, type: 3}
