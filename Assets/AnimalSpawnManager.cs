@@ -12,10 +12,7 @@ public class AnimalSpawnManager : MonoBehaviour
     {
         
         SpawnSpot randomSpawnSpot = spawnSpots[GetRandomIndex()];
-        if (expr)
-        {
-            
-        }
+    
     }
 
     private int GetRandomIndex()
@@ -25,6 +22,7 @@ public class AnimalSpawnManager : MonoBehaviour
 
     SpawnSpot GetAvailableRandomSpawnSpot()
     {
-        
+
+        return null;
     }
 }
