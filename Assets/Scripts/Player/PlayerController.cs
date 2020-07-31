@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float movementSpeed=10;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,16 +14,37 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         Move();
+        ShootProjectile();
     }
 
     private void Move()
     {
-        float horizontalInput = Input.GetAxis("Horizontal");
+     float movementSpeed=10;
+    float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
-        
-        this.transform.Translate(Vector3.right * (horizontalInput * Time.deltaTime * movementSpeed));
 
+        //TODO 
+        //Those should be calculated by the CameraViewport.
+        const float leftThreshold = -10;
+        const float rightThreshold = 10;
+        if (transform.position.x <leftThreshold)
+        {
+            transform.position = new  Vector3(leftThreshold,transform.position.y,transform.position.z);
+        }else  if (transform.position.x >rightThreshold)
+        {
+            transform.position = new Vector3(rightThreshold, transform.position.y, transform.position.z);
+        }
+        this.transform.Translate(Vector3.right * (horizontalInput * Time.deltaTime * movementSpeed));
         this.transform.Translate(Vector3.forward * (verticalInput * Time.deltaTime * movementSpeed));
 
+    }
+
+    [SerializeField] private GameObject projectilePrefab;
+    private void ShootProjectile()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Instantiate(projectilePrefab, this.transform.position, this.transform.rotation);
+        }
     }
 }
